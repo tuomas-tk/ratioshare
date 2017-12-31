@@ -1,6 +1,6 @@
 # ratioshare
 
-> ratioshare webapp
+> Webapp for sharing amount of something in given ratio
 
 ## Build Setup
 

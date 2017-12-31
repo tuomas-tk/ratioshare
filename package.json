@@ -1,8 +1,9 @@
 {
   "name": "ratioshare",
   "version": "1.0.0",
-  "description": "ratioshare webapp",
-  "author": "Tuomas Karjalainen",
+  "description": "Webapp for sharing amount of something in given ratio",
+  "author": "Tuomas Karjalainen <tuomas.karj@outlook.com>",
+  "license": "GPL-3.0-or-later",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
