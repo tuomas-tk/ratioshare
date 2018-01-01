@@ -21,7 +21,7 @@
       <div v-for="row in output">
         <NumberInput :value="row.value" readonly />
       </div>
-      <button class="btn-black" @click="shareVisible = !shareVisible">SHARE RESULTS</button>
+      <button class="btn-black" @click="share">SHARE RESULTS</button>
       <transition name="fade">
         <SocialShare v-if="shareVisible" />
       </transition>
@@ -134,7 +134,9 @@ export default {
       }
     },
     share: function () {
-      console.log('share')
+      this.shareVisible = !this.shareVisible
+      // eslint-disable-next-line
+      gtag('event', 'share')
     }
   },
   components: {

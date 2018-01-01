@@ -19,11 +19,15 @@ export default {
   created () {
     EventBus.$on('settings', () => {
       this.visible = !this.visible
+      // eslint-disable-next-line
+      gtag('event', 'settings')
     })
   },
   methods: {
     tutorial: function () {
       localStorage.setItem('tutorialFinished', 'false')
+      // eslint-disable-next-line
+      gtag('event', 'tutorial-restart')
       window.location.reload(false)
     }
   }

@@ -59,12 +59,20 @@ export default {
   },
   methods: {
     close: function () {
+      // eslint-disable-next-line
+      gtag('event', 'tutorial-close', {
+        'step': this.step
+      })
       this.step = -1
       localStorage.setItem('tutorialFinished', 'true')
     },
     next: function () {
       this.buttonKey++
       this.step++
+      // eslint-disable-next-line
+      gtag('event', 'tutorial', {
+        'step': this.step
+      })
       if (this.step === 1) {
         this.$router.replace({
           name: 'Calculator',
