@@ -5,7 +5,7 @@
     <div id="input">
       <h2>Input ratios</h2>
       <div v-for="row in input">
-        <NumberInput v-model="row.value" @input="updateQuery(input, totalOutput)" placeholder="0" />
+        <NumberInput class="right" v-model="row.value" @input="updateQuery(input, totalOutput)" placeholder="0" />
       </div>
       <button class="btn-red-dark" @click="remove">- ROW</button>
       <button class="btn-green-dark" @click="add">+ ROW</button>
@@ -19,7 +19,7 @@
  --><div id="output">
       <h2>Output</h2>
       <div v-for="row in output">
-        <NumberInput :value="row.value" readonly class="right" />
+        <NumberInput :value="row.value" readonly />
       </div>
       <button class="btn-black" @click="share">SHARE RESULTS</button>
     </div>
@@ -100,6 +100,7 @@ export default {
         var value = (this.input[j].value * this.multiplier)
           .toFixed(5)
           .replace(/\.0+$/, '')
+          .replace(/(\.\d)(0+)/, '$1')
         if (this.input[j].value === '') value = ''
         if (isNaN(value)) value = 'ERROR'
         this.output.push({ value: value })

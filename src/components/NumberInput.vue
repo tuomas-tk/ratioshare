@@ -26,17 +26,27 @@ export default {
   },
   methods: {
     updateValue: function (value) {
-      console.log(value)
       var formattedValue = value
         .trim() // Remove whitespace on either side
         .replace(/[^0-9.]/g, '') // Remove characters
-      console.log(formattedValue)
-      if (formattedValue !== value) {
-        this.$refs.input.value = formattedValue
+      var spaceFormattedValue = spacify(formattedValue)
+      if (spaceFormattedValue !== value) {
+        this.$refs.input.value = spaceFormattedValue
       }
       this.$emit('input', formattedValue)
     }
   }
+}
+function spacify (str) {
+  str = str.replace(' ', '')
+  var end = str.indexOf('.')
+  if (end === -1) end = str.length
+  for (var i = end - 1; i > 0; i--) {
+    if ((end - i) % 3 === 0) {
+      str = str.slice(0, i) + ' ' + str.slice(i)
+    }
+  }
+  return str
 }
 </script>
 

@@ -23,6 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
+$color_text: #444444;
 html, body {
   height: 100%;
   margin: 0;
