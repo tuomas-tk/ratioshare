@@ -21,13 +21,17 @@
       <div v-for="row in output">
         <NumberInput :value="row.value" readonly />
       </div>
-      <button class="btn-black" @click="share">SHARE RESULTS</button>
+      <button class="btn-black" @click="shareVisible = !shareVisible">SHARE RESULTS</button>
+      <transition name="fade">
+        <SocialShare v-if="shareVisible" />
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
 import NumberInput from './NumberInput.vue'
+import SocialShare from './SocialShare.vue'
 import Settings from './Settings.vue'
 import Tutorial from './Tutorial.vue'
 
@@ -45,10 +49,14 @@ export default {
       default: ''
     }},
   data () {
-    return { output: [] }
+    return {
+      output: [],
+      shareVisible: false
+    }
   },
   created () {
     this.updateQuery()
+    this.calculate()
   },
   computed: {
     input: function () {
@@ -131,6 +139,7 @@ export default {
   },
   components: {
     NumberInput,
+    SocialShare,
     Settings,
     Tutorial
   }
@@ -138,26 +147,40 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../variables';
 div.calculator {
-  padding: 0 2rem;
-  margin: 0 auto;
-  max-width: 1020px;
+  padding: 0 1rem;
 }
 div#input, div#process, div#output {
   box-sizing: border-box;
   display: inline-block;
-  height: 100%;
-  vertical-align: middle;
+  vertical-align: top;
   padding: 1rem;
 }
-div#input, div#output {
-  width: 33%;
+@media (min-width: 768px) {
+  div.calculator {
+    padding: 2rem 2rem;
+    margin: 0 auto;
+    max-width: 1020px;
+  }
+  div#input, div#output {
+    width: 33%;
+  }
+  div#process {
+    width: 34%;
+  }
 }
 div#process {
-  width: 34%;
   padding-bottom: 1rem;
-  background-color: #202040;
+  background-color: $background-blue;
   border-radius: 5px;
-  color: #FFFFFF;
+  color: $color-text-white;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0
 }
 </style>

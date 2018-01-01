@@ -18,8 +18,6 @@ export default {
   },
   created () {
     EventBus.$on('settings', () => {
-      console.log('got setting')
-      console.log(this.visible)
       this.visible = !this.visible
     })
   },
@@ -33,11 +31,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../variables';
 .settings {
-  background-color: #FAFAFA;
-  border: 1px solid #A0A0A0;
+  background-color: $background-grey;
+  border: 1px solid $border-grey;
   border-top: 0;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 $radius $radius;
   padding: 1rem;
   margin: -2rem auto 2rem auto;
   max-width: 600px;

@@ -51,28 +51,29 @@ function spacify (str) {
 </script>
 
 <style lang="scss" scoped>
+@import '../variables';
 input {
   margin: 1rem 0;
   font-size: 1.5em;
   box-sizing: border-box;
   width: 100%;
-  border: 2px solid #555555;
-  border-radius: 5px;
+  border: 2px solid $color_text;
+  border-radius: $radius;
   outline: 0;
   padding: 0.2em 0.5em;
-  background-color: #FAFAFA;
+  background-color: $background-grey;
 
   &:hover, &:focus {
-    background-color: #FFFFFF;
+    background-color: $background-white;
   }
   &:focus {
-    box-shadow: 0 0 .2em #44AA44;
+    box-shadow: 0 0 .3em -.1em $color-green-dark;
   }
 }
 input.total {
-  background-color: #202040;
-  border-color: #FFFFFF;
-  color: #FFFFFF;
+  background-color: $background-blue;
+  border-color: $color-text-white;
+  color: $color-text-white;
   text-align: center;
   margin-top: 0;
 }

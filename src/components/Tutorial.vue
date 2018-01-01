@@ -98,10 +98,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../variables';
 div.tutorial {
-  background-color: #FAFAFA;
-  border: 1px solid #A0A0A0;
-  border-radius: 5px;
+  background-color: $background-grey;
+  border: 1px solid $border-grey;
+  border-radius: $radius;
   padding: 1rem;
   margin: 2rem auto;
   max-width: 600px;

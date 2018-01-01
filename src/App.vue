@@ -3,7 +3,7 @@
     <header>
       <!-- <img src="./assets/logo.png"> -->
       <h1><a href="/">ratioshare</a></h1>
-      <button class="btn-black" @click="toggleSettings">SETTINGS</button>
+      <button class="btn-black btn-sm" @click="toggleSettings">SETTINGS</button>
     </header>
     <router-view />
   </div>
@@ -23,19 +23,19 @@ export default {
 </script>
 
 <style lang="scss">
-$color_text: #444444;
+@import './variables';
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+  background-color: $background-white;
 }
 #app {
   font-family: 'Open Sans', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #444444;
+  color: $color-text;
 }
 h1, h2, h3, h4, h5, h6, button {
   font-family: 'Quicksand', Helvetica, Arial, sans-serif;
@@ -43,19 +43,18 @@ h1, h2, h3, h4, h5, h6, button {
 }
 
 header {
-  border-top: 1px solid #fafafa;
-  border-bottom: 1px solid #aaaaaa;
-  background-color: #fafafa;
+  border-top: 1px solid $background-grey;
+  border-bottom: 1px solid $border-grey;
+  background-color: $background-grey;
   margin-bottom: 2rem;
 
   h1 {
-    display: inline-block;
     font-size: 4.5rem;
     line-height: 1.2em;
     margin: 0;
     padding: 0;
     a {
-      color: #444444;
+      color: $color-text;
       text-decoration: none;
       &:hover {
         text-decoration: underline;
@@ -66,7 +65,12 @@ header {
   button {
     position: absolute;
     right: 0.5em;
-    top: 0.5em;
+  }
+}
+
+@media (min-width: 768px) {
+  header button {
+    top: 1.2em;
   }
 }
 
@@ -92,13 +96,13 @@ button {
   font-size: .9rem;
 }
 .btn-green {
-  border-color: #00FF00;
-  color: #00FF00;
+  border-color: $color-green-light;
+  color: $color-green-light;
   box-shadow: 0 .1em .2em #000000, 0 0 .2em #000000 inset;
 
   &:hover {
-    box-shadow: 0px 0px .6em #00FF00, 0px 0px .2em #00FF00 inset;
-    text-shadow: 0px 0px .4em #00FF00;
+    box-shadow: 0px 0px .6em $color-green-light, 0px 0px .2em $color-green-light inset;
+    text-shadow: 0px 0px .4em $color-green-light;
     background-color: rgba(0, 255, 0, 0.1);
   }
 }
@@ -108,35 +112,35 @@ button {
   box-shadow: 0 .1em .2em #000000, 0 0 .2em #000000 inset;
 
   &:hover {
-    box-shadow: 0px 0px .6em #FF0000, 0px 0px .2em #FF0000 inset;
-    text-shadow: 0px 0px .4em #FF0000;
+    box-shadow: 0px 0px .6em $color-red-light, 0px 0px .2em $color-red-light inset;
+    text-shadow: 0px 0px .4em $color-red-light;
     background-color: rgba(255, 0, 0, 0.3);
     color: #FFFFFF;
     border-color: #FFFFFF;
   }
 }
 .btn-black {
-  border-color: #444444;
+  border-color: $color_text;
   &:hover {
-    background-color: #444444;
+    background-color: $color_text;
     color: #FFFFFF;
   }
 }
 .btn-red-dark {
-  color: #BB0000;
-  border-color: #BB0000;
+  color: $color-red-dark;
+  border-color: $color-red-dark;
   &:hover {
-    background-color: #CC0000;
-    border-color: #770000;
+    background-color: $color-red-dark;
+    border-color: darken($color-red-dark, 15);
     color: #FFFFFF;
   }
 }
 .btn-green-dark {
-  color: #008800;
-  border-color: #008800;
+  color: $color-green-dark;
+  border-color: $color-green-dark;
   &:hover {
-    background-color: #008800;
-    border-color: #005500;
+    background-color: $color-green-dark;
+    border-color: darken($color-green-dark, 15);
     color: #FFFFFF;
   }
 }
