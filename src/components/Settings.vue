@@ -3,7 +3,8 @@
     <h2>Settings</h2>
     <button class="btn-green-dark" @click="tutorial">RESTART TUTORIAL</button>
     <hr>
-    Project on <a href="https://github.com/tuomas-tk/ratioshare">GitHub</a>!
+    Made in Finland!<br>
+    Project on <a href="https://github.com/tuomas-tk/ratioshare">GitHub</a>
   </div>
 </template>
 

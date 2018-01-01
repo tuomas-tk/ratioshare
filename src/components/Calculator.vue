@@ -161,14 +161,16 @@ div#input, div#process, div#output {
 }
 @media (min-width: 768px) {
   div.calculator {
-    padding: 2rem 2rem;
+    padding: 0 2rem;
     margin: 0 auto;
     max-width: 1020px;
   }
   div#input, div#output {
+    margin-top: 2rem;
     width: 33%;
   }
   div#process {
+    margin-top: 2rem;
     width: 34%;
   }
 }
